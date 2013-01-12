@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>eXma Api-Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css"/>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/jqm-config.js"></script>
+    <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+    <script src="js/underscore-min.js"></script>
+    <script src="js/backbone-min.js"></script>
+    <script src="js/moment.min.js"></script>
+</head>
+<body>
+
+<div data-role="page">
+
+
+    <script type="text/template" id="home">
+
+        <div data-role="header">
+            <h1>Test the API</h1>
+        </div>
+
+        <div data-role="content">
+            <h3>Letzte Topics</h3>
+            <ul data-role="listview" data-inset="true">
+            </ul>
+        </div>
+
+    </script>
+
+    <script type="text/template" id="topic">
+
+        <div data-role="header">
+            <a href="#" data-icon="back" class="back ui-btn-left">Back</a>
+
+            <h1><%= title %></h1>
+        </div>
+
+        <div data-role="content">
+            <h3>Letzte Posts</h3>
+            <ul data-role="listview" data-inset="true" data-theme="d" data-divider-theme="d">
+            </ul>
+        </div>
+
+    </script>
+
+    <script type="text/template" id="topiclist">
+        <li>
+            <a href="#topic/<%= tid %>">
+                <h3><%= title %></h3>
+
+                <p>Started by: <strong><%= starter_name %></strong></p>
+
+                <p class="ui-li-aside"><strong><%= moment.unix(last_post).fromNow() %></strong><br><%= last_poster_name
+                    %></p></a>
+        </li>
+    </script>
+
+    <script type="text/template" id="postlist">
+        <li>
+            <h3><%= author_name %></h3>
+
+            <p><%= post %></p>
+
+            <p class="ui-li-aside"><strong><%= moment.unix(post_date).fromNow() %></strong></p>
+        </li>
+    </script>
+
+    <!-- /content -->
+
+    <script type="text/javascript">
+        var API_PATH = "http://127.0.0.1:5000/"
+    </script>
+    <script src="js/main.js"></script>
+</div>
+<!-- /page -->
+
+</body>
+</html>
